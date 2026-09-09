@@ -9,7 +9,9 @@ html {
     scroll-behavior: smooth;
     font-family: "Times New Roman", Times, serif; 
     background-color: #0b1121; /* Fondo principal oscuro */
-    color: #e2e8f0; 
+    color: #e2e8f0;
+    position: relative; 
+    z-index: 0;
 }
 
 /* ------------------------------------------- */
