@@ -131,3 +131,68 @@ p {
     color: #64748b;
     font-size: 1rem;
 }
+/* FONDO DE MECANISMOS ANIMADOS */
+.mechanisms-background {
+    position: fixed; /* Se queda fijo mientras haces scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Evita que el usuario seleccione las figuras por error */
+    z-index: 0; /* Las coloca en el fondo absoluto */
+    overflow: hidden;
+}
+
+.mech-shape {
+    position: absolute;
+    color: rgba(148, 163, 184, 0.15); /* Color gris/plateado muy sutil y translúcido */
+}
+
+/* LA MAGIA: Animación de aparecer, girar y desvanecerse */
+@keyframes fadeMoveRotate {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.9) translateY(15px);
+    }
+    40% {
+        opacity: 1; /* Aparece suavemente */
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0; /* Vuelve a desaparecer */
+        transform: rotate(60deg) scale(1.1) translateY(-15px);
+    }
+}
+
+/* Configuración individual de cada figura */
+.shape-1 {
+    width: 350px;
+    bottom: -50px;
+    left: -50px;
+    animation: fadeMoveRotate 14s infinite linear;
+}
+
+.shape-2 {
+    width: 400px;
+    top: 45%;
+    right: -80px;
+    /* Reverse hace que gire hacia el otro lado */
+    animation: fadeMoveRotate 18s infinite linear reverse;
+    animation-delay: 4s; /* Espera 4 segundos antes de aparecer */
+}
+
+.shape-3 {
+    width: 200px;
+    top: 15%;
+    left: 15%;
+    animation: fadeMoveRotate 12s infinite linear;
+    animation-delay: 8s; /* Aparece en un ritmo distinto a las demás */
+}
+
+/* ASEGURAR QUE EL CONTENIDO QUEDE POR ENCIMA DEL FONDO ANIMADO */
+.hero-content, .section, .footer {
+    position: relative;
+    z-index: 2;
+}
