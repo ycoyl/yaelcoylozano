@@ -14,6 +14,11 @@ html {
     z-index: 0;
 }
 
+body {
+    position: relative;
+    z-index: 1;
+}
+
 /* ------------------------------------------- */
 /* FONDO DE MECANISMOS ANIMADOS */
 /* ------------------------------------------- */
@@ -24,13 +29,19 @@ html {
     width: 100%;
     height: 100%;
     pointer-events: none; 
-    z-index: 0; /* Detrás del contenido pero visible */
+    z-index: 1;
     overflow: hidden;
+    background-color: transparent;
 }
 
 .mech-shape {
     position: absolute;
-    color: rgba(56, 189, 248, 0.5); /* Color azul visible con 50% de opacidad */
+    stroke: rgba(56, 189, 248, 0.6);
+    fill: none;
+}
+
+svg.mech-shape {
+    filter: drop-shadow(0 0 2px rgba(56, 189, 248, 0.4));
 }
 
 @keyframes fadeMoveRotate {
@@ -48,6 +59,7 @@ html {
 
 .shape-1 {
     width: 350px;
+    height: 350px;
     bottom: -50px;
     left: -50px;
     animation: fadeMoveRotate 14s infinite linear;
@@ -55,6 +67,7 @@ html {
 
 .shape-2 {
     width: 400px;
+    height: 400px;
     top: 45%;
     right: -80px;
     animation: fadeMoveRotate 18s infinite linear reverse;
@@ -63,6 +76,7 @@ html {
 
 .shape-3 {
     width: 200px;
+    height: 200px;
     top: 15%;
     left: 15%;
     animation: fadeMoveRotate 12s infinite linear;
@@ -76,6 +90,8 @@ html {
     height: 100vh; 
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 2;
 }
 
 .hero-image {
