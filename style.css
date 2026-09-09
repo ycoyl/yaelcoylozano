@@ -29,7 +29,7 @@ body {
     width: 100%;
     height: 100%;
     pointer-events: none; 
-    z-index: 1;
+    z-index: 0;
     overflow: hidden;
     background-color: transparent;
 }
@@ -171,6 +171,61 @@ p {
     line-height: 1.7;
     color: #cbd5e1;
     font-size: 1.3rem; 
+}
+
+/* ------------------------------------------- */
+/* SECCIÓN SOBRE MÍ - LAYOUT DE DOS COLUMNAS */
+/* ------------------------------------------- */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-card {
+    background-color: rgba(30, 41, 59, 0.85); /* Fondo semitransparente */
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    backdrop-filter: blur(5px); /* Efecto cristal */
+    user-select: none; /* No seleccionable */
+    -webkit-user-select: none; /* Para Safari */
+    -moz-user-select: none; /* Para Firefox */
+}
+
+.about-card p {
+    margin: 0;
+}
+
+.about-image {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(56, 189, 248, 0.15);
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Responsive: En pantallas pequeñas, una columna */
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .about-image {
+        order: -1; /* La imagen arriba en móvil */
+    }
 }
 
 /* ------------------------------------------- */
