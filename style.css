@@ -30,7 +30,7 @@ html {
 
 .mech-shape {
     position: absolute;
-    color: rgba(148, 163, 184, 0.12); /* Transparencia sutil */
+    color: rgba(56, 189, 248, 0.5); /* Color azul visible con 50% de opacidad */
 }
 
 @keyframes fadeMoveRotate {
