@@ -180,7 +180,7 @@ p {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 40px;
-    align-items: flex-start;
+    align-items: stretch;
 }
 
 .about-text {
@@ -196,6 +196,9 @@ p {
     user-select: none; /* No seleccionable */
     -webkit-user-select: none; /* Para Safari */
     -moz-user-select: none; /* Para Firefox */
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .about-card p {
@@ -208,14 +211,18 @@ p {
     border-radius: 8px;
     box-shadow: 0 8px 32px rgba(56, 189, 248, 0.15);
     max-width: 250px;
-    height: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .about-image img {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
+    object-fit: cover;
     border-radius: 8px;
+    display: block;
 }
 
 /* Responsive: En pantallas pequeñas, una columna */
