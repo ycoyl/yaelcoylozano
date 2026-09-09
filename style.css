@@ -7,166 +7,43 @@
 
 html {
     scroll-behavior: smooth;
-    /* Cambio de fuente a Times New Roman para toda la página */
     font-family: "Times New Roman", Times, serif; 
-    background-color: #0f172a; 
+    background-color: #0b1121; /* Fondo principal oscuro */
     color: #e2e8f0; 
 }
 
-/* PANTALLA DE PRESENTACIÓN DIVIDIDA */
-.hero {
-    height: 100vh; 
-    display: flex;
-    flex-direction: column; /* Apila la imagen arriba y el texto abajo */
-    background-color: #111827; /* Fondo azul oscuro */
-}
-
-/* IMAGEN SUPERIOR */
-.hero-image {
-    width: 100%;
-    height: 45vh; /* Ocupa el 45% del alto de la pantalla */
-    background-image: url('Fondo plano.png'); /* Archivo de imagen vinculado */
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;
-    border-bottom: 2px solid #1e293b; /* Línea sutil divisoria */
-}
-
-/* CONTENEDOR DE TEXTO CENTRADO */
-.hero-content {
-    height: 55vh; /* Ocupa el 55% restante */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-}
-
-.main-title {
-    font-size: 3.5rem;
-    font-weight: bold;
-    color: #ffffff;
-    margin-bottom: 15px;
-}
-
-/* SUBTÍTULO CON TAMAÑO AUMENTADO */
-.subtitle {
-    font-size: 1.8rem; /* Tamaño más grande que el anterior */
-    font-weight: normal;
-    color: #e2e8f0; 
-    margin-bottom: 40px;
-}
-
-/* INDICADOR DE SCROLL */
-.scroll-indicator {
-    font-size: 1.8rem;
-    color: #38bdf8;
-    animation: bounce 2s infinite;
-    margin-top: auto; /* Lo empuja hacia abajo */
-    margin-bottom: 20px;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
-}
-
-/* SECCIONES DE CONTENIDO */
-.section {
-    padding: 80px 20px;
-    border-top: 1px solid #1e293b;
-}
-
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-h2 {
-    font-size: 2.2rem;
-    color: #ffffff;
-    margin-bottom: 20px;
-}
-
-p {
-    line-height: 1.7;
-    color: #cbd5e1;
-    font-size: 1.2rem; /* Tamaño de texto general levemente más grande por ser serif */
-}
-
-/* GRID DE PROYECTOS */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.project-card {
-    background-color: #1e293b;
-    padding: 25px;
-    border-radius: 8px;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    border: 1px solid #334155;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    border-color: #38bdf8;
-}
-
-.project-card h3 {
-    color: #ffffff;
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-}
-
-/* FOOTER */
-.footer {
-    text-align: center;
-    padding: 30px 20px;
-    background-color: #0b0f19;
-    color: #64748b;
-    font-size: 1rem;
-}
+/* ------------------------------------------- */
 /* FONDO DE MECANISMOS ANIMADOS */
+/* ------------------------------------------- */
 .mechanisms-background {
-    position: fixed; /* Se queda fijo mientras haces scroll */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Evita que el usuario seleccione las figuras por error */
-    z-index: 0; /* Las coloca en el fondo absoluto */
+    pointer-events: none; 
+    z-index: 1; /* Detrás del contenido pero visible */
     overflow: hidden;
 }
 
 .mech-shape {
     position: absolute;
-    color: rgba(148, 163, 184, 0.15); /* Color gris/plateado muy sutil y translúcido */
+    color: rgba(148, 163, 184, 0.12); /* Transparencia sutil */
 }
 
-/* LA MAGIA: Animación de aparecer, girar y desvanecerse */
 @keyframes fadeMoveRotate {
     0% {
         opacity: 0;
         transform: rotate(0deg) scale(0.9) translateY(15px);
     }
-    40% {
-        opacity: 1; /* Aparece suavemente */
-    }
-    60% {
-        opacity: 1;
-    }
+    40% { opacity: 1; }
+    60% { opacity: 1; }
     100% {
-        opacity: 0; /* Vuelve a desaparecer */
+        opacity: 0;
         transform: rotate(60deg) scale(1.1) translateY(-15px);
     }
 }
 
-/* Configuración individual de cada figura */
 .shape-1 {
     width: 350px;
     bottom: -50px;
@@ -178,9 +55,8 @@ p {
     width: 400px;
     top: 45%;
     right: -80px;
-    /* Reverse hace que gire hacia el otro lado */
     animation: fadeMoveRotate 18s infinite linear reverse;
-    animation-delay: 4s; /* Espera 4 segundos antes de aparecer */
+    animation-delay: 4s; 
 }
 
 .shape-3 {
@@ -188,11 +64,141 @@ p {
     top: 15%;
     left: 15%;
     animation: fadeMoveRotate 12s infinite linear;
-    animation-delay: 8s; /* Aparece en un ritmo distinto a las demás */
+    animation-delay: 8s; 
 }
 
-/* ASEGURAR QUE EL CONTENIDO QUEDE POR ENCIMA DEL FONDO ANIMADO */
-.hero-content, .section, .footer {
+/* ------------------------------------------- */
+/* PANTALLA DE PRESENTACIÓN DIVIDIDA */
+/* ------------------------------------------- */
+.hero {
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-image {
+    width: 100%;
+    height: 45vh; 
+    background-image: url('Fondo plano.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 3; /* Cubre la animación en la parte superior */
+    border-bottom: 2px solid #1e293b;
+}
+
+.hero-content {
+    height: 55vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background-color: transparent;
+    position: relative;
+    z-index: 2; /* Por encima de la animación */
+}
+
+.main-title {
+    font-size: 4rem; /* Título grande e impactante */
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 1.8rem; /* Subtítulo agrandado */
+    font-weight: normal;
+    color: #cbd5e1; 
+    margin-bottom: 40px;
+}
+
+.scroll-indicator {
+    font-size: 2rem;
+    color: #38bdf8;
+    animation: bounce 2s infinite;
+    margin-top: auto; 
+    margin-bottom: 30px;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* ------------------------------------------- */
+/* SECCIONES Y CONTENIDO (Por encima del fondo) */
+/* ------------------------------------------- */
+.section {
+    padding: 80px 20px;
     position: relative;
     z-index: 2;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 25px;
+}
+
+p {
+    line-height: 1.7;
+    color: #cbd5e1;
+    font-size: 1.3rem; 
+}
+
+/* ------------------------------------------- */
+/* TARJETAS DE PROYECTOS */
+/* ------------------------------------------- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.project-card {
+    background-color: rgba(30, 41, 59, 0.85); /* Fondo semitransparente */
+    padding: 30px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    border: 1px solid #334155;
+    backdrop-filter: blur(5px); /* Efecto cristal para que el fondo se vea elegante */
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: #38bdf8;
+}
+
+.project-card h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+}
+
+.project-card p {
+    font-size: 1.15rem;
+}
+
+/* ------------------------------------------- */
+/* FOOTER */
+/* ------------------------------------------- */
+.footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #0b0f19;
+    color: #64748b;
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid #1e293b;
 }
