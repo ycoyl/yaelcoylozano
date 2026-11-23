@@ -51,6 +51,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
     backButton.addEventListener('click', closeProject);
 
+    // Lightbox para ampliar las imágenes de las simulaciones FEA.
+    const imageDialog = document.createElement('dialog');
+    imageDialog.className = 'image-lightbox';
+    imageDialog.setAttribute('aria-label', 'Imagen ampliada de la simulación');
+    imageDialog.innerHTML = `
+        <button class="image-lightbox-close" type="button" aria-label="Cerrar imagen ampliada">&times;</button>
+        <img class="image-lightbox-preview" alt="">
+    `;
+    document.body.append(imageDialog);
+
+    const preview = imageDialog.querySelector('.image-lightbox-preview');
+    const closeImageButton = imageDialog.querySelector('.image-lightbox-close');
+
+    function openImage(image) {
+        preview.src = image.src;
+        preview.alt = image.alt;
+        imageDialog.showModal();
+        closeImageButton.focus();
+    }
+
+    function closeImage() {
+        if (imageDialog.open) imageDialog.close();
+    }
+
+    details.querySelectorAll('.project-fea-gallery img').forEach((image) => {
+        image.tabIndex = 0;
+        image.setAttribute('role', 'button');
+        image.setAttribute('aria-haspopup', 'dialog');
+        image.setAttribute('aria-label', `${image.alt}. Abrir imagen ampliada`);
+        image.addEventListener('click', () => openImage(image));
+        image.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openImage(image);
+            }
+        });
+    });
+
+    closeImageButton.addEventListener('click', closeImage);
+    imageDialog.addEventListener('click', (event) => {
+        if (event.target === imageDialog) closeImage();
+    });
+
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && !details.hidden) closeProject();
     });
