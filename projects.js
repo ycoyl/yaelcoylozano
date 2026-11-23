@@ -69,8 +69,15 @@ document.addEventListener('DOMContentLoaded', () => {
         imageTrigger = image;
         preview.src = image.currentSrc || image.src;
         preview.alt = image.alt;
-        imageDialog.showModal();
-        closeImageButton.focus();
+
+        // Fallback para navegadores sin soporte de dialog.showModal().
+        if (typeof imageDialog.showModal !== 'function') {
+            window.open(preview.src, '_blank', 'noopener,noreferrer');
+            return;
+        }
+
+        if (!imageDialog.open) imageDialog.showModal();
+        closeImageButton.focus({ preventScroll: true });
     }
 
     function closeImage() {

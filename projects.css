@@ -196,13 +196,14 @@ body.project-open .mechanisms-background {
 .project-fea-gallery img {
     display: block;
     width: 100%;
-    max-width: 340px;
-    height: 220px;
+    max-width: 440px;
+    height: 280px;
     object-fit: contain;
     border: 1px solid #475569;
     border-radius: 8px;
     background: #111b2e;
     cursor: zoom-in;
+    touch-action: manipulation;
 }
 
 .project-fea-gallery img:focus-visible,
@@ -212,10 +213,13 @@ body.project-open .mechanisms-background {
 }
 
 .image-lightbox {
-    position: relative;
-    width: min(96vw, 1200px);
-    max-width: 96vw;
-    max-height: 94dvh;
+    position: fixed;
+    inset: 0;
+    width: calc(100vw - 24px);
+    max-width: 1200px;
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
+    margin: auto;
     padding: 52px 16px 16px;
     overflow: auto;
     border: 1px solid #475569;
@@ -232,7 +236,8 @@ body.project-open .mechanisms-background {
 .image-lightbox-preview {
     display: block;
     width: 100%;
-    max-height: calc(94dvh - 72px);
+    max-height: calc(100vh - 100px);
+    max-height: calc(100dvh - 100px);
     object-fit: contain;
     -webkit-user-drag: auto;
     user-select: auto;
@@ -289,11 +294,20 @@ body.project-open .mechanisms-background {
     }
 
     .project-fea-gallery img {
-        height: 200px;
+        width: 100%;
+        max-width: none;
+        height: 250px;
     }
 
     .image-lightbox {
+        width: calc(100vw - 16px);
+        max-height: calc(100vh - 16px);
+        max-height: calc(100dvh - 16px);
         padding: 52px 8px 8px;
     }
-}
 
+    .image-lightbox-preview {
+        max-height: calc(100vh - 84px);
+        max-height: calc(100dvh - 84px);
+    }
+}
