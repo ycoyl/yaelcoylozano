@@ -1,0 +1,88 @@
+<template id="project-pirolisis-card-template">
+    <button class="project-card" type="button" data-project="pirolisis" aria-controls="detail-pirolisis">
+        <img class="project-card-image" src="images/Catarina1.jpeg" alt="Catarina híbrida de aluminio y fibra de carbono para bicicleta de pista" loading="lazy">
+        <span class="project-card-content">
+            <span class="project-card-title">Catarina híbrida metal–fibra de carbono para bicicleta de pista</span>
+            <span class="project-card-tags" aria-label="Etiquetas del proyecto">Diseño mecánico · Fatiga · Ansys · Aluminio 7075-T6 · Fibra de carbono · CAD</span>
+            <span class="project-card-summary">Diseño de una catarina de 58 dientes para pista con un concepto híbrido: esqueleto estructural en aluminio 7075-T6 y cascarilla estética en fibra de carbono.</span>
+            <span class="project-card-link">Ver proyecto <span aria-hidden="true">&#8594;</span></span>
+        </span>
+    </button>
+</template>
+
+<template id="project-pirolisis-detail-template">
+    <article class="project-detail project-detail-pirolisis" id="detail-pirolisis" tabindex="-1" hidden>
+        <div class="project-detail-content">
+            <p class="project-detail-label">Proyecto destacado</p>
+            <h3>Catarina híbrida metal–fibra de carbono para bicicleta de pista</h3>
+
+            <div class="project-header-gallery project-image-gallery" aria-label="Modelo y vistas del plato híbrido">
+                <figure class="project-figure">
+                    <img src="images/Catarina1.jpeg" alt="Catarina híbrida de aluminio y fibra de carbono para bicicleta de pista">
+                    <figcaption>Modelo conceptual del plato híbrido.</figcaption>
+                </figure>
+            </div>
+
+            <h4>Objetivo y concepto</h4>
+            <p>Quería una catarina de pista que fuera resistente y también llamativa. Separé las dos funciones:</p>
+            <p><strong>Función mecánica:</strong> los dientes y un esqueleto estructural en aluminio 7075-T6. El metal debía cumplir por sí solo con la resistencia a fatiga y al desgaste.</p>
+            <p><strong>Función estética:</strong> una cascarilla de fibra de carbono sobre el esqueleto, que da el aspecto visual característico del material sin tener un papel estructural principal.</p>
+
+            <h4>Requisitos</h4>
+            <ul>
+                <li>Transmisión de 58 dientes con cadena de 1/2&quot; × 1/8&quot;.</li>
+                <li>Montaje con BCD de 144 mm y 5 tornillos.</li>
+                <li>Vida útil de 15.000 km.</li>
+                <li>Alta resistencia a fatiga y al desgaste.</li>
+                <li>Perfil de diente estándar de pista.</li>
+            </ul>
+
+            <h4>Geometría</h4>
+            <p>Calculé el perfil del diente con las relaciones de ASME B29.1, a partir de la cadena (paso de 12,7 mm y rodillo de 7,92 mm).</p>
+            <div class="project-table-wrap">
+                <table class="project-data-table">
+                    <thead><tr><th>Parámetro</th><th>Resultado</th></tr></thead>
+                    <tbody>
+                        <tr><td>Diámetro primitivo</td><td>234,6 mm</td></tr>
+                        <tr><td>Diámetro de raíz</td><td>226,7 mm</td></tr>
+                        <tr><td>Diámetro exterior</td><td>240 mm</td></tr>
+                        <tr><td>Espesor de diente</td><td>2,95 mm</td></tr>
+                        <tr><td>Diámetro de alivio</td><td>202,4 mm</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Cargas de diseño</h4>
+            <p>Modelé un sprint con 1.600 W de potencia pico a 75 km/h, rueda 700c y piñón de 14 dientes.</p>
+            <ul>
+                <li>Carga pico de 1.359 N para la verificación estática.</li>
+                <li>Carga nominal de 906 N para la verificación por fatiga.</li>
+                <li>Reparto asumido de carga entre dientes: 70/30.</li>
+            </ul>
+
+            <h4>Validación por elementos finitos</h4>
+            <p>Para contrastar el cálculo analítico modelé un sector de dientes en Ansys con una carga de 951 N sobre el diente más cargado.</p>
+            <div class="project-fea-gallery project-image-gallery" aria-label="Resultados de validación por elementos finitos">
+                <figure class="project-figure">
+                    <img src="images/Catarina2.jpeg" alt="Resultado de esfuerzo por elementos finitos en Ansys">
+                    <figcaption>Esfuerzo principal máximo: 242 MPa.</figcaption>
+                </figure>
+                <figure class="project-figure">
+                    <img src="images/Catarina3.jpeg" alt="Resultado de deformación por elementos finitos en Ansys">
+                    <figcaption>Deformación máxima: 0,048 mm.</figcaption>
+                </figure>
+            </div>
+
+            <h4>Trabajo futuro</h4>
+            <ul>
+                <li>Simulación dinámica de la transmisión.</li>
+                <li>Fabricación de un prototipo y ensayo en banco.</li>
+                <li>Refinamiento de la malla y estudio de convergencia.</li>
+                <li>Evaluación del desgaste y del método de unión entre aluminio y fibra de carbono.</li>
+            </ul>
+
+            <h4>Herramientas</h4>
+            <p>Autodesk Inventor · Ansys · Teoría de Lewis · ASME B29.1 · Análisis de fatiga</p>
+        </div>
+    </article>
+</template>

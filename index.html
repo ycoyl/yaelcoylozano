@@ -41,9 +41,7 @@
         <div class="hero-content">
             <h1 class="main-title">Yael Coy Lozano</h1>
             <p class="subtitle">Proyectos de Ingeniería Mecánica y Diseño</p>
-            <div class="scroll-indicator">
-                <span>&#8595;</span>
-            </div>
+            <div class="scroll-indicator"><span>&#8595;</span></div>
         </div>
     </header>
 
@@ -54,20 +52,16 @@
             <div class="about-content">
                 <div class="about-text">
                     <div class="about-card">
-                        <p>
-                            Hola, soy Yael. Bienvenido a mi portafolio.
+                        <p>Hola, soy Yael. Bienvenido a mi portafolio.
 
-Para que me conozcas, me gustaría comenzar diciéndote que disfruto entender cómo funciona el mundo, los sistemas, y las cosas en general, amo el proceso de diseño y siempre ver formas de mejora.
+Para que me conozcas, me gustaría comenzar diciéndote que disfruto entender cómo funciona el mundo, los sistemas, y las cosas en general, amo el proceso de diseño y siempre ver formas de mejorar.
 
 Fuera de los proyectos, encuentro inspiración en la bicicleta, la naturaleza y las cosas nuevas que voy descubriendo.
 
-Aquí encontrarás algunos de los proyectos, ideas y aprendizajes que han ido construyendo mi camino.
-                        </p>
+Aquí encontrarás algunos de los proyectos, ideas y aprendizajes que han ido construyendo mi camino.</p>
                     </div>
                 </div>
-                <div class="about-image">
-                    <img src="Fondo perfil.jpeg" alt="Yael Coy Lozano">
-                </div>
+                <div class="about-image"><img src="Fondo perfil.jpeg" alt="Yael Coy Lozano"></div>
             </div>
         </div>
     </section>
@@ -79,138 +73,18 @@ Aquí encontrarás algunos de los proyectos, ideas y aprendizajes que han ido co
             <p class="projects-intro">Selecciona un proyecto para conocer más.</p>
 
             <div class="projects-grid" id="projects-grid">
-                <button class="project-card" type="button" data-project="pirolisis" aria-controls="detail-pirolisis">
-                    <img class="project-card-image" src="images/Catarina1.jpeg" alt="Catarina híbrida de aluminio y fibra de carbono para bicicleta de pista" loading="lazy">
-                    <span class="project-card-content">
-                        <span class="project-card-title">Catarina híbrida metal–fibra de carbono para bicicleta de pista</span>
-                        <span class="project-card-summary">Diseño de una catarina de 58 dientes para pista (cadena 1/2&quot; × 1/8&quot;, BCD 144 mm, 5 tornillos) con un concepto híbrido. Los dientes y el esqueleto son de aluminio 7075-T6 y cumplen por sí solos los requisitos mecánicos. Una cascarilla de fibra de carbono aporta la estética. Hice el diseño completo: geometría según ASME B29.1, memoria de cálculo (Lewis y Goodman modificado), CAD y validación por elementos finitos en Ansys.</span>
-                        <span class="project-card-link">Ver proyecto <span aria-hidden="true">&#8594;</span></span>
-                    </span>
-                </button>
-
-                <button class="project-card" type="button" data-project="hidraulica" aria-controls="detail-hidraulica">
-                    <img class="project-card-image" src="images/proyecto-hidraulica.svg" alt="Ilustración de una bomba y un sistema de tuberías" loading="lazy">
-                    <span class="project-card-content">
-                        <span class="project-card-title">Sistemas Hidráulicos</span>
-                        <span class="project-card-summary">Análisis de rendimiento de bombeo centrífugo con MATLAB.</span>
-                        <span class="project-card-link">Ver proyecto <span aria-hidden="true">&#8594;</span></span>
-                    </span>
-                </button>
-
-                <button class="project-card" type="button" data-project="reactores" aria-controls="detail-reactores">
-                    <img class="project-card-image" src="images/proyecto-reactores.svg" alt="Ilustración técnica de un reactor cónico" loading="lazy">
-                    <span class="project-card-content">
-                        <span class="project-card-title">Diseño de Reactores</span>
-                        <span class="project-card-summary">Modelos de expansión térmica y densidad variable del gas.</span>
-                        <span class="project-card-link">Ver proyecto <span aria-hidden="true">&#8594;</span></span>
-                    </span>
-                </button>
+                <!-- Las tarjetas se cargan desde sus plantillas modulares. -->
             </div>
 
             <div class="project-details" id="project-details" hidden>
-                <button class="back-to-projects" type="button">
-                    <span aria-hidden="true">&#8592;</span> Volver a proyectos
-                </button>
-
-                <article class="project-detail" id="detail-pirolisis" tabindex="-1" hidden>
-                    <img class="project-detail-image" src="images/Catarina1.jpeg" alt="Catarina híbrida de aluminio y fibra de carbono para bicicleta de pista">
-                    <div class="project-detail-content">
-                        <p class="project-detail-label">Proyecto destacado</p>
-                        <h3>Catarina híbrida metal–fibra de carbono para bicicleta de pista</h3>
-
-                        <h4>Objetivo y concepto</h4>
-                        <p>Quería una catarina de pista que fuera resistente y también llamativa. Separé las dos funciones:</p>
-                        <p><strong>Función mecánica:</strong> los dientes y un esqueleto estructural en aluminio 7075-T6. El metal debía cumplir por sí solo con la resistencia a fatiga y al desgaste, sin depender de la fibra.</p>
-                        <p><strong>Función estética:</strong> una cascarilla de fibra de carbono sobre el esqueleto, que da el aspecto visual característico del material sin tener un papel estructural.</p>
-                        <p>Así, el diseño mecánico se verifica solo con el metal, que es la condición más exigente.</p>
-
-                        <h4>Los requisitos eran:</h4>
-                        <ul>
-                            <li>Transmisión de 58 dientes con cadena de 1/2&quot; × 1/8&quot;.</li>
-                            <li>Montaje con BCD de 144 mm y 5 tornillos.</li>
-                            <li>Vida útil de 15.000 km.</li>
-                            <li>Alta resistencia a fatiga y al desgaste.</li>
-                            <li>Perfil de diente estándar de pista.</li>
-                        </ul>
-
-                        <h4>Geometría</h4>
-                        <p>Calculé el perfil del diente con las relaciones de ASME B29.1, a partir de la cadena (paso de 12,7 mm, rodillo de 7,92 mm). Los resultados principales:</p>
-                        <ul>
-                            <li>Diámetro primitivo de 234,6 mm.</li>
-                            <li>Diámetro de raíz de 226,7 mm.</li>
-                            <li>Diámetro exterior de 240 mm.</li>
-                            <li>Espesor de diente de 2,95 mm frente a un ancho interno de cadena de 3,175 mm, lo que deja 0,22 mm de holgura de entrada.</li>
-                            <li>Chaflanes laterales de 1,27 a 1,9 mm a 45°.</li>
-                            <li>Radios de asiento y de perfil dentro de los rangos de la norma.</li>
-                            <li>Diámetro de alivio de 202,4 mm bajo la raíz, que define hasta dónde se puede vaciar el cuerpo del plato sin invadir la zona de dientes.</li>
-                        </ul>
-                        <p>En el CAD, el esqueleto lleva orificios de tamaño decreciente distribuidos en arcos, que lo aligeran y le dan identidad visual.</p>
-
-                        <h4>Cargas de diseño</h4>
-                        <p>Modelé un sprint con 1.600 W de potencia pico a 75 km/h, con rueda 700c y piñón de 14 dientes. Resultaron un torque de 106 N·m y una fuerza de cadena nominal de 906 N. Definí dos casos de carga:</p>
-                        <ul>
-                            <li>Carga pico: 1.359 N. Es la nominal con un factor de 1,5 por tirones de cadena y esfuerzo adicional del ciclista. La uso para la verificación estática.</li>
-                            <li>Carga nominal: 906 N. Es la carga repetida en cada pedalada. La uso para fatiga, porque los impactos son eventos ocasionales y no ocurren en cada ciclo.</li>
-                        </ul>
-                        <p>Como la catarina funciona como un engrane, la carga se reparte entre los dientes en contacto con la cadena. Asumí un reparto 70/30: el diente más cargado recibe el 70 % (951 N con la carga pico) y el segundo el 30 % (408 N).</p>
-
-                        <h4>Verificación estática</h4>
-                        <p>Con la teoría de Lewis calculé el esfuerzo en la raíz del diente, usando el factor de forma interpolado para z = 58 y el factor de velocidad de Barth. Para el diente más cargado, con 951 N, el esfuerzo es de unos 252 MPa. El admisible es de 419 MPa (S<sub>y</sub>/1,2), y el factor de seguridad respecto a la fluencia (503 MPa) es de aproximadamente 2.</p>
-
-                        <h4>Verificación por fatiga</h4>
-                        <p>Con la carga nominal y el reparto 70/30, el diente más cargado soporta 634 N. El esfuerzo máximo resulta de unos 168 MPa, con σ<sub>min</sub> = 0 (carga repetida), por lo que σ<sub>m</sub> = σ<sub>a</sub> ≈ 84 MPa. Corregí el límite de fatiga del aluminio 7075-T6 (159 MPa a 5×10⁸ ciclos) con los factores de Marín: superficie, tamaño, temperatura y confiabilidad del 95 %. El resultado es de 128 MPa. Con Goodman modificado, el factor de seguridad es de 1,24 para una vida de 15.000 km, que equivale a unas 20,4 millones de revoluciones del plato.</p>
-
-                        <h4>Validación por elementos finitos (Ansys)</h4>
-                        <p>Para contrastar el cálculo analítico modelé un sector de dientes en Ansys, con una carga de 951 N sobre el diente más cargado.</p>
-                        <ul>
-                            <li>El esfuerzo principal máximo es de 242 MPa, en la raíz del diente. Es muy cercano a los 252 MPa de Lewis, con una diferencia de 4 %, así que el modelo analítico queda validado.</li>
-                            <li>La deformación total máxima es de 0,048 mm y se ubica en la punta del diente cargado. Disminuye hacia la raíz y es prácticamente nula en el resto del sector, lo que corresponde al comportamiento de un diente que trabaja como viga en voladizo. El valor es pequeño porque el material permanece en régimen elástico (242 MPa, frente a una fluencia de 503 MPa) y su rigidez es alta (E = 71,7 GPa). Esto se puede comprobar con un orden de magnitud: una deformación unitaria de σ/E ≈ 0,34 %, aplicada a una altura de diente de unos 8 mm, da del orden de 0,03 mm, que es consistente con el resultado de la simulación. Además, la deflexión equivale a menos del 0,4 % del paso de la cadena (12,7 mm), por lo que no altera el contacto entre rodillo y diente ni el engrane.</li>
-                        </ul>
-                        <div class="project-fea-gallery" aria-label="Resultados de validación por elementos finitos">
-                            <img src="images/Catarina2.jpeg" alt="Resultado de esfuerzo por elementos finitos en Ansys">
-                            <img src="images/Catarina3.jpeg" alt="Resultado de deformación por elementos finitos en Ansys">
-                        </div>
-
-                        <h4>Trabajo futuro:</h4>
-                        <p>Trabajo futuro, para llevar el diseño de la verificación a la validación:</p>
-                        <ul>
-                            <li><strong>Simulación dinámica.</strong> La verificación de fatiga considera la variación cíclica del esfuerzo, pero parte de una carga y un reparto entre dientes supuestos, y el FEA se hizo con una carga estática. Una simulación dinámica del conjunto catarina–cadena–piñón permitiría obtener la carga real en cada diente a lo largo del engrane, el reparto entre los dientes en contacto y el efecto de los tirones de cadena. Con esos resultados se podrían sustituir los supuestos del reparto 70/30 y del factor de impacto de 1,5 por valores calculados, y alimentar un análisis de fatiga más realista.</li>
-                            <li><strong>Fabricación y ensayo.</strong> Fabricar un prototipo y medirlo en banco, para contrastar los resultados de los modelos con el comportamiento real.</li>
-                            <li><strong>Refinamiento del FEA.</strong> Refinar la malla en la raíz del diente y hacer un estudio de convergencia.</li>
-                            <li><strong>Desgaste.</strong> El requisito de resistencia al desgaste no se verificó con cálculo. Se puede abordar con un análisis de presión de contacto, o con el tratamiento superficial del diente, por ejemplo un anodizado duro.</li>
-                            <li><strong>Cascarilla.</strong> Para integrar la cascarilla de fibra de carbono con el esqueleto metálico evalué dos opciones: la unión con adhesivo, en la que la cascarilla se fabrica por separado y se pega al esqueleto, y la producción directa sobre el esqueleto, en la que la fibra se lamina sobre el propio esqueleto y se cura sobre él. Como la cascarilla no es estructural, en ambos casos el requisito es el mismo: que quede unida al esqueleto sin interferir con los dientes ni con la zona de montaje.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="project-detail" id="detail-hidraulica" tabindex="-1" hidden>
-                    <img class="project-detail-image" src="images/proyecto-hidraulica.svg" alt="Ilustración de una bomba y un sistema de tuberías">
-                    <div class="project-detail-content">
-                        <p class="project-detail-label">Proyecto destacado</p>
-                        <h3>Sistemas Hidráulicos</h3>
-                        <h4>Descripción</h4>
-                        <p>Análisis de rendimiento en sistemas de bombeo centrífugo utilizando MATLAB. Cálculo del Punto de Máxima Eficiencia (BEP), NPSH y curvas del sistema (H<sub>sis</sub>).</p>
-                    </div>
-                </article>
-
-                <article class="project-detail" id="detail-reactores" tabindex="-1" hidden>
-                    <img class="project-detail-image" src="images/proyecto-reactores.svg" alt="Ilustración técnica de un reactor cónico">
-                    <div class="project-detail-content">
-                        <p class="project-detail-label">Proyecto destacado</p>
-                        <h3>Diseño de Reactores</h3>
-                        <h4>Descripción</h4>
-                        <p>Desarrollo de modelos considerando la expansión térmica y la densidad variable del gas en geometrías de expansión cónica.</p>
-                    </div>
-                </article>
+                <button class="back-to-projects" type="button"><span aria-hidden="true">&#8592;</span> Volver a proyectos</button>
+                <!-- Los detalles se cargan desde sus plantillas modulares. -->
             </div>
         </div>
     </section>
 
-    <!-- PIE DE PÁGINA -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Yael Coy Lozano. Todos los derechos reservados.</p>
-        </div>
+        <div class="container"><p>&copy; 2026 Yael Coy Lozano. Todos los derechos reservados.</p></div>
     </footer>
 </body>
 </html>
