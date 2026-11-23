@@ -4,14 +4,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const backButton = details.querySelector('.back-to-projects');
     const cards = grid.querySelectorAll('[data-project]');
     const panels = details.querySelectorAll('.project-detail');
+    let lastSelectedCard = null;
+    let pageScrollY = 0;
+
+    function lockPageScroll() {
+        pageScrollY = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${pageScrollY}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+        document.body.style.width = '100%';
+    }
+
+    function restorePageScroll() {
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.style.width = '';
+        window.scrollTo(0, pageScrollY);
+    }
 
     function closeProject() {
         details.hidden = true;
         panels.forEach((panel) => { panel.hidden = true; });
         grid.hidden = false;
-        const projectsHeading = document.querySelector('#projects h2');
-        projectsHeading.setAttribute('tabindex', '-1');
-        projectsHeading.focus();
+        restorePageScroll();
+        if (lastSelectedCard) lastSelectedCard.focus({ preventScroll: true });
     }
 
     cards.forEach((card) => {
@@ -19,11 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const panel = document.getElementById(`detail-${card.dataset.project}`);
             if (!panel) return;
 
+            lastSelectedCard = card;
+            lockPageScroll();
             grid.hidden = true;
             panels.forEach((item) => { item.hidden = item !== panel; });
             details.hidden = false;
             panel.focus();
-            details.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            details.scrollTop = 0;
         });
     });
 
