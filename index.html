@@ -164,7 +164,7 @@ Aquí encontrarás algunos de los proyectos, ideas y aprendizajes que han ido co
                         <p>Para contrastar el cálculo analítico modelé un sector de dientes en Ansys, con una carga de 951 N sobre el diente más cargado.</p>
                         <ul>
                             <li>El esfuerzo principal máximo es de 242 MPa, en la raíz del diente. Es muy cercano a los 252 MPa de Lewis, con una diferencia de 4 %, así que el modelo analítico queda validado.</li>
-                            <li>La deformación máxima es de 0,048 mm, en la punta del diente.</li>
+                            <li>La deformación total máxima es de 0,048 mm y se ubica en la punta del diente cargado. Disminuye hacia la raíz y es prácticamente nula en el resto del sector, lo que corresponde al comportamiento de un diente que trabaja como viga en voladizo. El valor es pequeño porque el material permanece en régimen elástico (242 MPa, frente a una fluencia de 503 MPa) y su rigidez es alta (E = 71,7 GPa). Esto se puede comprobar con un orden de magnitud: una deformación unitaria de σ/E ≈ 0,34 %, aplicada a una altura de diente de unos 8 mm, da del orden de 0,03 mm, que es consistente con el resultado de la simulación. Además, la deflexión equivale a menos del 0,4 % del paso de la cadena (12,7 mm), por lo que no altera el contacto entre rodillo y diente ni el engrane.</li>
                         </ul>
                         <div class="project-fea-gallery" aria-label="Resultados de validación por elementos finitos">
                             <img src="images/Catarina2.jpeg" alt="Resultado de esfuerzo por elementos finitos en Ansys">
