@@ -189,13 +189,14 @@ body.project-open .mechanisms-background {
 .project-fea-gallery img {
     display: block;
     width: 100%;
-    max-width: 340px;
-    height: 220px;
+    max-width: 460px;
+    height: 300px;
     object-fit: contain;
     border: 1px solid #475569;
     border-radius: 8px;
     background: #111b2e;
     cursor: zoom-in;
+    touch-action: manipulation;
 }
 
 .project-fea-gallery img:focus-visible {
@@ -203,11 +204,17 @@ body.project-open .mechanisms-background {
     outline-offset: 4px;
 }
 
+/* El diálogo debe centrarse en la ventana, no en el final del documento.
+   Esto evita que quede fuera de pantalla al abrirlo desde un móvil. */
 .image-lightbox {
-    position: relative;
+    position: fixed;
+    inset: 0;
     width: min(96vw, 1200px);
     max-width: 96vw;
+    max-height: 94vh;
     max-height: 94dvh;
+    height: fit-content;
+    margin: auto;
     padding: 52px 16px 16px;
     overflow: visible;
     border: 1px solid #475569;
@@ -224,6 +231,7 @@ body.project-open .mechanisms-background {
 .image-lightbox-preview {
     display: block;
     width: 100%;
+    max-height: calc(94vh - 72px);
     max-height: calc(94dvh - 72px);
     object-fit: contain;
 }
@@ -279,7 +287,7 @@ body.project-open .mechanisms-background {
     }
 
     .project-fea-gallery img {
-        height: 200px;
+        height: 270px;
     }
 
     .image-lightbox {
