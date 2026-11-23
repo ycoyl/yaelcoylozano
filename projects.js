@@ -1,25 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.getElementById('projects-grid');
     const details = document.getElementById('project-details');
+
+    if (!grid || !details) return;
+
     const backButton = details.querySelector('.back-to-projects');
     const cards = grid.querySelectorAll('[data-project]');
     const panels = details.querySelectorAll('.project-detail');
     let lastSelectedCard = null;
     let pageScrollY = 0;
-    let previousHtmlOverflow = '';
-    let previousBodyOverflow = '';
 
     function lockPageScroll() {
         pageScrollY = window.scrollY;
-        previousHtmlOverflow = document.documentElement.style.overflow;
-        previousBodyOverflow = document.body.style.overflow;
+        document.documentElement.classList.add('project-open');
+        document.body.classList.add('project-open');
         document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
     }
 
     function restorePageScroll() {
-        document.documentElement.style.overflow = previousHtmlOverflow;
-        document.body.style.overflow = previousBodyOverflow;
+        document.documentElement.classList.remove('project-open');
+        document.body.classList.remove('project-open');
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
         window.scrollTo(0, pageScrollY);
     }
 
