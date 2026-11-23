@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="title desc">
+  <title id="title">Diseño de reactores</title>
+  <desc id="desc">Ilustración esquemática de un reactor de geometría cónica.</desc>
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#10253c"/><stop offset="1" stop-color="#0b1121"/></linearGradient></defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <g fill="#142940" stroke="#38bdf8" stroke-width="5" stroke-linejoin="round">
+    <path d="M320 75h160v48l-25 34v65l85 115v18H260v-18l85-115v-65l-25-34z"/>
+    <path d="M345 123h110M345 222h110" fill="none" opacity=".65"/>
+  </g>
+  <path d="M400 167v126" stroke="#fbbf24" stroke-width="5" stroke-dasharray="9 11"/>
+  <path d="m389 180 11-17 11 17m-22 100 11 17 11-17" fill="none" stroke="#fbbf24" stroke-width="4"/>
+  <g fill="none" stroke="#94a3b8" stroke-width="3" opacity=".7"><path d="M224 120h80m-80 0-12-10m12 10-12 10M576 285h-80m80 0 12-10m-12 10 12 10"/></g>
+  <g fill="#7dd3fc"><circle cx="375" cy="190" r="5"/><circle cx="424" cy="208" r="5"/><circle cx="386" cy="246" r="4"/><circle cx="430" cy="265" r="6"/></g>
+</svg>

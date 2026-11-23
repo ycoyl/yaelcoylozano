@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="title desc">
+  <title id="title">Simulación de pirólisis</title>
+  <desc id="desc">Ilustración técnica de un reactor, partículas y flujo de calor.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#10253c"/><stop offset="1" stop-color="#0b1121"/></linearGradient>
+    <linearGradient id="heat" x2="0" y2="1"><stop stop-color="#fbbf24"/><stop offset="1" stop-color="#f97316"/></linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <g fill="none" stroke="#38bdf8" stroke-width="4" opacity=".8">
+    <path d="M300 75h200v25l-22 25v145l38 52v22H284v-22l38-52V125l-22-25z"/>
+    <path d="M322 125h156M322 260h156" opacity=".55"/>
+  </g>
+  <path d="M340 260c20-30 0-48 18-75s-2-45 18-65c20 27-1 43 18 67s0 42 21 73c13 20-3 41-36 41s-54-20-39-41z" fill="url(#heat)" opacity=".85"/>
+  <g fill="#e2e8f0"><circle cx="360" cy="170" r="5"/><circle cx="435" cy="190" r="7"/><circle cx="385" cy="225" r="4"/><circle cx="452" cy="242" r="5"/><circle cx="350" cy="205" r="3"/></g>
+  <g stroke="#38bdf8" stroke-width="2" opacity=".5"><path d="M120 210h130m430 0H550"/><path d="m230 198 20 12-20 12m340-24-20 12 20 12"/></g>
+</svg>

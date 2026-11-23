@@ -1,0 +1,148 @@
+/* Vistas ampliadas de proyectos */
+.projects-intro {
+    margin-top: -12px;
+    font-size: 1.1rem;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    color: inherit;
+    text-align: left;
+    font: inherit;
+    cursor: pointer;
+}
+
+.project-card:focus-visible,
+.back-to-projects:focus-visible {
+    outline: 3px solid #38bdf8;
+    outline-offset: 4px;
+}
+
+.project-card-image {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    background: #111b2e;
+}
+
+.project-card-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px;
+}
+
+.project-card-title {
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.project-card-summary {
+    color: #cbd5e1;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.project-card-link {
+    margin-top: 18px;
+    color: #38bdf8;
+    font-size: 1rem;
+}
+
+.project-details {
+    margin-top: 30px;
+}
+
+.back-to-projects {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
+    padding: 10px 0;
+    border: 0;
+    background: transparent;
+    color: #38bdf8;
+    font: inherit;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.back-to-projects span {
+    font-size: 1.5rem;
+}
+
+.project-detail {
+    overflow: hidden;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    background: rgba(30, 41, 59, 0.92);
+    backdrop-filter: blur(5px);
+    animation: project-detail-enter 220ms ease-out;
+}
+
+.project-detail-image {
+    display: block;
+    width: 100%;
+    max-height: 390px;
+    object-fit: cover;
+    background: #111b2e;
+}
+
+.project-detail-content {
+    padding: clamp(22px, 5vw, 42px);
+}
+
+.project-detail-label {
+    margin-bottom: 8px;
+    color: #38bdf8;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.project-detail h3 {
+    margin-bottom: 24px;
+    color: #fff;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+}
+
+.project-detail h4 {
+    margin-bottom: 8px;
+    color: #fff;
+    font-size: 1.25rem;
+}
+
+.project-detail-content > p:last-child {
+    font-size: 1.1rem;
+}
+
+.project-details[hidden],
+.project-detail[hidden],
+.projects-grid[hidden] {
+    display: none;
+}
+
+@keyframes project-detail-enter {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-detail {
+        animation: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-card-image {
+        height: 165px;
+    }
+}

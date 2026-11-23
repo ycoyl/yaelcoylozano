@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="title desc">
+  <title id="title">Sistemas hidráulicos</title>
+  <desc id="desc">Ilustración de una bomba centrífuga conectada a tuberías y un manómetro.</desc>
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#10253c"/><stop offset="1" stop-color="#0b1121"/></linearGradient></defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <g fill="none" stroke="#38bdf8" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M170 300h100v-72h100m90 0h150v-80h70"/>
+    <path d="M620 148v-45h60" stroke-width="7"/>
+  </g>
+  <circle cx="415" cy="228" r="78" fill="#172b42" stroke="#7dd3fc" stroke-width="5"/>
+  <path d="M415 174c31 0 55 24 55 54 0 29-24 53-55 53-18 0-33-8-43-22l43-31z" fill="#38bdf8" opacity=".85"/>
+  <circle cx="415" cy="228" r="10" fill="#e0f2fe"/>
+  <circle cx="680" cy="100" r="34" fill="#172b42" stroke="#e2e8f0" stroke-width="4"/>
+  <path d="m680 100 17-17" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"/>
+  <path d="M189 286v28m-13-14h28" stroke="#e2e8f0" stroke-width="4" opacity=".7"/>
+</svg>
