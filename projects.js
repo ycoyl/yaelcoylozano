@@ -51,10 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     backButton.addEventListener('click', closeProject);
 
-    // Lightbox para ampliar las imágenes de las simulaciones FEA.
+    // Lightbox reutilizable para todas las imágenes principales y FEA.
     const imageDialog = document.createElement('dialog');
     imageDialog.className = 'image-lightbox';
-    imageDialog.setAttribute('aria-label', 'Imagen ampliada de la simulación');
+    imageDialog.setAttribute('aria-label', 'Imagen ampliada del proyecto');
     imageDialog.innerHTML = `
         <button class="image-lightbox-close" type="button" aria-label="Cerrar imagen ampliada">&times;</button>
         <img class="image-lightbox-preview" alt="">
@@ -63,23 +63,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const preview = imageDialog.querySelector('.image-lightbox-preview');
     const closeImageButton = imageDialog.querySelector('.image-lightbox-close');
+    let imageTrigger = null;
 
     function openImage(image) {
-        preview.src = image.src;
+        imageTrigger = image;
+        preview.src = image.currentSrc || image.src;
         preview.alt = image.alt;
         imageDialog.showModal();
         closeImageButton.focus();
     }
 
     function closeImage() {
-        if (imageDialog.open) imageDialog.close();
+        if (!imageDialog.open) return;
+        imageDialog.close();
+        if (imageTrigger) imageTrigger.focus({ preventScroll: true });
     }
 
-    details.querySelectorAll('.project-fea-gallery img').forEach((image) => {
+    const projectImages = details.querySelectorAll('.project-detail-image, .project-fea-gallery img');
+
+    projectImages.forEach((image) => {
         image.tabIndex = 0;
         image.setAttribute('role', 'button');
         image.setAttribute('aria-haspopup', 'dialog');
         image.setAttribute('aria-label', `${image.alt}. Abrir imagen ampliada`);
+
         image.addEventListener('click', () => openImage(image));
         image.addEventListener('keydown', (event) => {
             if (event.key === 'Enter' || event.key === ' ') {
@@ -90,11 +97,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     closeImageButton.addEventListener('click', closeImage);
+
     imageDialog.addEventListener('click', (event) => {
         if (event.target === imageDialog) closeImage();
     });
 
+    imageDialog.addEventListener('cancel', (event) => {
+        event.preventDefault();
+        closeImage();
+    });
+
     document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && !details.hidden) closeProject();
+        if (event.key === 'Escape' && imageDialog.open) {
+            event.preventDefault();
+            closeImage();
+        } else if (event.key === 'Escape' && !details.hidden) {
+            closeProject();
+        }
     });
 });
