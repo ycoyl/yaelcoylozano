@@ -120,6 +120,7 @@ body.project-open .mechanisms-background {
     max-height: 390px;
     object-fit: cover;
     background: #111b2e;
+    cursor: zoom-in;
 }
 
 .project-detail-content {
@@ -186,6 +187,12 @@ body.project-open .mechanisms-background {
     margin: 22px 0 10px;
 }
 
+.project-fea-gallery img,
+.project-detail-image {
+    -webkit-user-drag: auto;
+    user-select: auto;
+}
+
 .project-fea-gallery img {
     display: block;
     width: 100%;
@@ -198,7 +205,8 @@ body.project-open .mechanisms-background {
     cursor: zoom-in;
 }
 
-.project-fea-gallery img:focus-visible {
+.project-fea-gallery img:focus-visible,
+.project-detail-image:focus-visible {
     outline: 3px solid #38bdf8;
     outline-offset: 4px;
 }
@@ -209,7 +217,7 @@ body.project-open .mechanisms-background {
     max-width: 96vw;
     max-height: 94dvh;
     padding: 52px 16px 16px;
-    overflow: visible;
+    overflow: auto;
     border: 1px solid #475569;
     border-radius: 12px;
     background: #0b1121;
@@ -226,6 +234,8 @@ body.project-open .mechanisms-background {
     width: 100%;
     max-height: calc(94dvh - 72px);
     object-fit: contain;
+    -webkit-user-drag: auto;
+    user-select: auto;
 }
 
 .image-lightbox-close {
@@ -286,3 +296,4 @@ body.project-open .mechanisms-background {
         padding: 52px 8px 8px;
     }
 }
+
