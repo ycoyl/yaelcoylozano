@@ -24,45 +24,133 @@
             </div>
 
             <h4>Objetivo y concepto</h4>
-            <p>Desarrollo de una catarina para bicicletas de pista, intentando integrar materiales compuestos. </p>
+            <p>Desarrollo de una catarina para bicicletas de pista, intentando integrar materiales compuestos. La pieza debía resistir las cargas de un sprint, durar 15.000 km y tener una estética llamativa, manteniendo el perfil de diente estándar de pista.</p>
             <p>El diseño de esta pieza se puede separar en dos funciones:</p>
-            <p><strong>Función mecánica:</strong> los dientes y un esqueleto estructural en aluminio 7075-T6, donde el metal debía cumplir por sí solo con la resistencia a fatiga y al desgaste.</p>
+            <p><strong>Función mecánica:</strong> los dientes y un esqueleto estructural en aluminio 7075-T6, donde el metal debía cumplir por sí solo con la resistencia a fatiga y al desgaste, sin depender de la fibra de carbono.</p>
             <p><strong>Función estética:</strong> una cascarilla de fibra de carbono sobre el esqueleto, que da el aspecto visual característico del material sin tener un papel estructural principal.</p>
+            <p>Esta separación permite verificar el diseño mecánico únicamente con el metal, que es la condición más exigente, y deja la parte estética libre para modificarse o retirarse sin afectar la resistencia de la pieza.</p>
+            <p>Para integrar la cascarilla con el esqueleto se evaluaron dos opciones: la <strong>unión con adhesivo</strong>, en la que la cascarilla se fabrica por separado y se pega al esqueleto, y la <strong>producción directa sobre el esqueleto</strong>, en la que la fibra se lamina y se cura sobre él. En ambos casos el requisito es que la cascarilla quede unida sin interferir con los dientes ni con la zona de montaje.</p>
 
             <h4>Requerimientos</h4>
             <ul>
                 <li>Transmisión de 58 dientes con cadena de 1/2&quot; × 1/8&quot;.</li>
                 <li>Montaje con BCD de 144 mm y 5 tornillos.</li>
+                <li>Cargas de diseño: torque máximo en sprint, carga cíclica (fatiga) e impactos por tirones de cadena.</li>
                 <li>Vida útil de 15.000 km.</li>
                 <li>Alta resistencia a fatiga y al desgaste.</li>
                 <li>Perfil de diente estándar de pista.</li>
+                <li>Estética llamativa.</li>
             </ul>
 
             <h4>Geometría</h4>
-            <p>Calculé el perfil del diente con las relaciones de ASME B29.1, a partir de la cadena (paso de 12,7 mm y rodillo de 7,92 mm).</p>
+            <p>Calculé el perfil del diente con las relaciones de ASME B29.1, a partir de la cadena (paso de 12,7 mm y rodillo de 7,92 mm). Estos son los parámetros principales:</p>
             <div class="project-table-wrap">
                 <table class="project-data-table">
                     <thead><tr><th>Parámetro</th><th>Resultado</th></tr></thead>
                     <tbody>
+                        <tr><td>Paso de cadena (p)</td><td>12,7 mm</td></tr>
+                        <tr><td>Diámetro del rodillo (d<sub>1</sub>)</td><td>7,92 mm</td></tr>
+                        <tr><td>Número de dientes (z)</td><td>58</td></tr>
                         <tr><td>Diámetro primitivo</td><td>234,6 mm</td></tr>
                         <tr><td>Diámetro de raíz</td><td>226,7 mm</td></tr>
-                        <tr><td>Diámetro exterior</td><td>240 mm</td></tr>
+                        <tr><td>Diámetro exterior</td><td>240 mm (rango calculado: 239,0–242,5 mm)</td></tr>
+                        <tr><td>Altura del diente sobre el polígono primitivo (k)</td><td>2,39–4,15 mm</td></tr>
+                        <tr><td>Radio de asiento del rodillo (r<sub>1</sub>)</td><td>4,00–5,19 mm</td></tr>
+                        <tr><td>Ángulo de contacto del rodillo (χ)</td><td>118,4°–138,4°</td></tr>
                         <tr><td>Espesor de diente</td><td>2,95 mm</td></tr>
+                        <tr><td>Ancho interno de la cadena</td><td>3,175 mm</td></tr>
+                        <tr><td>Holgura de entrada de la cadena</td><td>0,22 mm</td></tr>
+                        <tr><td>Chaflán lateral del diente</td><td>1,27–1,9 mm a 45°</td></tr>
                         <tr><td>Diámetro de alivio</td><td>202,4 mm</td></tr>
                     </tbody>
                 </table>
             </div>
+            <p>El espesor de diente se tomó como el 93 % del ancho interno de la cadena (valor recomendado para catarinas simples con paso menor o igual a 12,7 mm), lo que deja 0,22 mm de holgura para que la cadena entre sin atascarse. El diámetro exterior adoptado queda dentro del rango calculado.</p>
+            <p>El diámetro de alivio define hasta dónde se puede vaciar el cuerpo del plato sin invadir la zona de dientes. En el modelo CAD, el esqueleto aprovecha ese espacio con orificios de tamaño decreciente distribuidos en arcos, además de los 5 agujeros del montaje con BCD de 144 mm.</p>
 
             <h4>Cargas de diseño</h4>
-            <p>Modelé un sprint con 1.600 W de potencia pico a 75 km/h, rueda 700c y piñón de 14 dientes.</p>
+            <p>Modelé un sprint con 1.600 W de potencia pico a 75 km/h, rueda 700c y piñón de 14 dientes. Con esos datos obtuve las cargas sobre la transmisión:</p>
+            <div class="project-table-wrap">
+                <table class="project-data-table">
+                    <thead><tr><th>Parámetro</th><th>Valor</th></tr></thead>
+                    <tbody>
+                        <tr><td>Potencia pico en sprint</td><td>1.600 W</td></tr>
+                        <tr><td>Velocidad máxima en pista</td><td>75 km/h (20,8 m/s)</td></tr>
+                        <tr><td>Rueda</td><td>700c (diámetro con llanta de 0,668 m)</td></tr>
+                        <tr><td>Piñón</td><td>14 dientes (relación 58/14 ≈ 4,14)</td></tr>
+                        <tr><td>Velocidad angular del plato</td><td>15,06 rad/s</td></tr>
+                        <tr><td>Torque en el plato</td><td>106,3 N·m</td></tr>
+                        <tr><td>Fuerza de cadena nominal</td><td>906 N</td></tr>
+                        <tr><td>Fuerza de cadena pico (factor 1,5)</td><td>1.359 N</td></tr>
+                    </tbody>
+                </table>
+            </div>
             <ul>
-                <li>Carga pico de 1.359 N para la verificación estática.</li>
-                <li>Carga nominal de 906 N para la verificación por fatiga.</li>
-                <li>Reparto asumido de carga entre dientes: 70/30.</li>
+                <li>Carga pico de 1.359 N para la verificación estática. Incluye un factor de 1,5 para cubrir los tirones de cadena y el esfuerzo adicional del ciclista.</li>
+                <li>Carga nominal de 906 N para la verificación por fatiga. Es la carga que se repite en cada pedalada; los impactos son eventos ocasionales y se cubren en la verificación estática.</li>
+                <li>Reparto asumido de carga entre dientes: 70/30. El diente más cargado recibe el 70 % (951 N con la carga pico) y el siguiente el 30 % (408 N).</li>
             </ul>
 
+            <h4>Material</h4>
+            <p>Elegí aluminio 7075-T6 por su alta relación resistencia/peso. Propiedades usadas en los cálculos:</p>
+            <div class="project-table-wrap">
+                <table class="project-data-table">
+                    <thead><tr><th>Propiedad</th><th>Valor</th></tr></thead>
+                    <tbody>
+                        <tr><td>Resistencia última (S<sub>u</sub>)</td><td>572 MPa</td></tr>
+                        <tr><td>Resistencia a la fluencia (S<sub>y</sub>)</td><td>503 MPa</td></tr>
+                        <tr><td>Resistencia última a cortante</td><td>331 MPa</td></tr>
+                        <tr><td>Módulo de Young (E)</td><td>71,7 GPa</td></tr>
+                        <tr><td>Módulo de corte (G)</td><td>26,9 GPa</td></tr>
+                        <tr><td>Resistencia a la fatiga (S<sub>f</sub>)</td><td>159 MPa (a 5×10<sup>8</sup> ciclos)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Verificación estática</h4>
+            <p>Traté el diente como el de un engrane y calculé el esfuerzo en la raíz con la teoría de Lewis, usando un módulo equivalente (p/π) y un factor de forma interpolado para z = 58:</p>
+            <p>σ = W<sub>t</sub> / (F · m · Y · K<sub>v</sub>)</p>
+            <p>donde W<sub>t</sub> es la carga tangencial, F el ancho del diente (2,95 mm), m el módulo equivalente, Y el factor de forma y K<sub>v</sub> el factor de velocidad de Barth, que aumenta el esfuerzo por efectos dinámicos.</p>
+            <div class="project-table-wrap">
+                <table class="project-data-table">
+                    <thead><tr><th>Parámetro</th><th>Resultado</th></tr></thead>
+                    <tbody>
+                        <tr><td>Módulo equivalente (m)</td><td>4,04 mm</td></tr>
+                        <tr><td>Factor de forma de Lewis (Y)</td><td>0,408</td></tr>
+                        <tr><td>Velocidad en el diámetro primitivo</td><td>1,77 m/s</td></tr>
+                        <tr><td>Factor de velocidad (K<sub>v</sub>)</td><td>0,775</td></tr>
+                        <tr><td>Esfuerzo con un solo diente (1.359 N)</td><td>360 MPa</td></tr>
+                        <tr><td>Esfuerzo en el diente más cargado (951 N)</td><td>252 MPa</td></tr>
+                        <tr><td>Esfuerzo admisible (S<sub>y</sub>/1,2)</td><td>419 MPa</td></tr>
+                        <tr><td>Factor de seguridad respecto a la fluencia</td><td>≈ 2,0</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Verificación por fatiga</h4>
+            <p>Para la fatiga consideré una carga repetida: el esfuerzo mínimo es cero y el esfuerzo medio es igual al alternante. Corregí el límite de fatiga del aluminio 7075-T6 con los factores de Marín (superficie, tamaño, temperatura y confiabilidad del 95 %) y calculé el factor de seguridad con el criterio de Goodman modificado.</p>
+            <div class="project-table-wrap">
+                <table class="project-data-table">
+                    <thead><tr><th>Parámetro</th><th>Resultado</th></tr></thead>
+                    <tbody>
+                        <tr><td>Carga en el diente más cargado (906 N × 70 %)</td><td>634 N</td></tr>
+                        <tr><td>Esfuerzo máximo (σ<sub>máx</sub>)</td><td>168 MPa</td></tr>
+                        <tr><td>Esfuerzo medio y alternante (σ<sub>m</sub> = σ<sub>a</sub>)</td><td>≈ 84 MPa</td></tr>
+                        <tr><td>Límite de fatiga del material (S&prime;<sub>e</sub>)</td><td>159 MPa</td></tr>
+                        <tr><td>Factor de superficie (k<sub>a</sub>, maquinado)</td><td>0,838</td></tr>
+                        <tr><td>Factor de tamaño (k<sub>b</sub>)</td><td>1,104</td></tr>
+                        <tr><td>Factor de temperatura (k<sub>d</sub>)</td><td>1,0</td></tr>
+                        <tr><td>Factor de confiabilidad (k<sub>e</sub>, 95 %)</td><td>0,868</td></tr>
+                        <tr><td>Límite de fatiga corregido (S<sub>e</sub>)</td><td>128 MPa</td></tr>
+                        <tr><td>Factor de seguridad (Goodman modificado)</td><td>1,24</td></tr>
+                        <tr><td>Vida de diseño</td><td>15.000 km ≈ 20,4 millones de revoluciones del plato</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>El margen de fatiga es ajustado y es la parte más sensible del diseño: depende del reparto de carga entre dientes (70/30) y de usar la carga nominal en lugar de la pico.</p>
+
             <h4>Validación por elementos finitos</h4>
-            <p>Para contrastar el cálculo analítico modelé un sector de dientes en Ansys con una carga de 951 N sobre el diente más cargado.</p>
+            <p>Para contrastar el cálculo analítico modelé un sector de dientes en Ansys con una carga de 951 N sobre el diente más cargado, que corresponde al 70 % de la carga pico de 1.359 N.</p>
             <div class="project-fea-gallery project-image-gallery" aria-label="Resultados de validación por elementos finitos">
                 <figure class="project-figure">
                     <img src="images/Catarina2.jpeg" alt="Resultado de esfuerzo por elementos finitos en Ansys">
@@ -73,17 +161,28 @@
                     <figcaption>Deformación máxima: 0,048 mm.</figcaption>
                 </figure>
             </div>
+            <p>El esfuerzo principal máximo es de 242 MPa y se concentra en la raíz del diente cargado, la zona crítica prevista por la teoría de Lewis. Es cercano a los 252 MPa calculados analíticamente (una diferencia de 4 %) y deja un factor de seguridad de aproximadamente 2,1 respecto a la fluencia del material (503 MPa).</p>
+            <p>La deformación máxima es de 0,048 mm y se ubica en la punta del diente. Equivale a menos del 0,4 % del paso de la cadena, por lo que el diente es suficientemente rígido para mantener el engrane bajo la carga de diseño.</p>
+
+            <h4>Conclusiones</h4>
+            <ul>
+                <li>El diseño cumple los requerimientos de partida: 58 dientes, cadena de 1/2&quot; × 1/8&quot;, BCD de 144 mm con 5 tornillos y perfil de diente estándar de pista.</li>
+                <li>Separar la función mecánica (aluminio 7075-T6) de la estética (fibra de carbono) permitió verificar la pieza solo con el metal, la condición más exigente.</li>
+                <li>Las tres verificaciones se respaldan entre sí: la teoría de Lewis (252 MPa) y el análisis por elementos finitos (242 MPa) coinciden con una diferencia de 4 %, y la fatiga da un factor de seguridad de 1,24 para la vida de 15.000 km.</li>
+                <li>El margen de fatiga es ajustado, por lo que los supuestos de carga y de reparto entre dientes deben validarse con una simulación dinámica y con ensayos.</li>
+                <li>El diseño todavía se puede optimizar, por ejemplo en el aligeramiento del esqueleto, el espesor del diente y la integración de la cascarilla.</li>
+            </ul>
 
             <h4>Trabajo futuro</h4>
             <ul>
-                <li>Simulación dinámica de la transmisión.</li>
-                <li>Fabricación de un prototipo y ensayo en banco.</li>
-                <li>Refinamiento de la malla y estudio de convergencia.</li>
-                <li>Evaluación del desgaste y del método de unión entre aluminio y fibra de carbono.</li>
+                <li>Simulación dinámica del conjunto catarina–cadena–piñón, para calcular la carga real en cada diente, el reparto entre los dientes en contacto y el efecto de los tirones de cadena, en lugar de asumir el reparto 70/30 y el factor de impacto de 1,5.</li>
+                <li>Fabricación de un prototipo y ensayo en banco, para contrastar los resultados de los modelos con el comportamiento real.</li>
+                <li>Refinamiento de la malla en la raíz del diente y estudio de convergencia.</li>
+                <li>Evaluación del desgaste, mediante un análisis de presión de contacto o un tratamiento superficial del diente, y del método de unión entre aluminio y fibra de carbono (adhesivo o producción directa sobre el esqueleto).</li>
             </ul>
 
             <h4>Herramientas</h4>
-            <p>Autodesk Inventor · Ansys · Teoría de Lewis · ASME B29.1 · Análisis de fatiga</p>
+            <p>Autodesk Inventor · Ansys · Excel · Teoría de Lewis · ASME B29.1 · Criterio de Goodman modificado · Factores de Marín · Análisis de fatiga</p>
         </div>
     </article>
 </template>
