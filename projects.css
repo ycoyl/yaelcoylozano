@@ -294,3 +294,179 @@ body.project-open .mechanisms-background {
         padding: 52px 8px 8px;
     }
 }
+
+/* Imágenes y pies de foto del proyecto de la potencia. */
+.project-card-tags {
+    display: block;
+    margin: 0 0 12px;
+    color: #7dd3fc;
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.project-meta {
+    margin: -18px 0 24px !important;
+    color: #cbd5e1;
+    font-size: 0.95rem !important;
+}
+
+.project-image-gallery {
+    display: grid;
+    gap: 14px;
+    margin: 22px 0 28px;
+}
+
+.project-header-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    margin-top: 0;
+}
+
+.project-header-gallery .project-figure img {
+    height: min(45dvh, 380px);
+}
+
+.project-generative-gallery,
+.project-fea-gallery.project-image-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+}
+
+.project-single-image {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+}
+
+.project-single-image .project-figure {
+    width: 100%;
+}
+
+.project-single-image img {
+    max-height: 460px;
+}
+
+.project-figure {
+    min-width: 0;
+    margin: 0;
+}
+
+.project-figure img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    object-fit: contain;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    background: #111b2e;
+    cursor: zoom-in;
+    touch-action: manipulation;
+    transition: transform 180ms ease, border-color 180ms ease, filter 180ms ease;
+}
+
+.project-figure img:hover {
+    transform: scale(1.015);
+    border-color: #38bdf8;
+    filter: brightness(1.06);
+}
+
+.project-figure img:focus-visible {
+    outline: 3px solid #38bdf8;
+    outline-offset: 4px;
+}
+
+.project-figure figcaption {
+    margin-top: 8px;
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+.project-table-wrap {
+    width: 100%;
+    margin: 20px 0 24px;
+    overflow-x: auto;
+    border: 1px solid #475569;
+    border-radius: 8px;
+}
+
+.project-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.project-data-table th,
+.project-data-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #475569;
+    text-align: left;
+    vertical-align: top;
+}
+
+.project-data-table th {
+    background: #17243a;
+    color: #fff;
+    font-weight: 700;
+}
+
+.project-data-table tr:last-child td {
+    border-bottom: 0;
+}
+
+.project-results-table td:first-child {
+    width: 28%;
+    color: #fff;
+    font-weight: 600;
+}
+
+.project-equation {
+    color: #fff;
+    font-size: 1.1rem !important;
+    text-align: center;
+}
+
+.project-subheading {
+    margin-top: 22px !important;
+}
+
+@media (max-width: 600px) {
+    .project-header-gallery {
+        gap: 10px;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .project-header-gallery .project-figure img {
+        height: min(30vw, 190px);
+    }
+
+    .project-generative-gallery,
+    .project-fea-gallery.project-image-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .project-figure img {
+        height: 240px;
+    }
+
+    .project-data-table {
+        font-size: 0.85rem;
+    }
+
+    .project-data-table th,
+    .project-data-table td {
+        padding: 9px 10px;
+    }
+
+    .project-results-table td:first-child {
+        width: 34%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-figure img {
+        transition: none;
+    }
+}
