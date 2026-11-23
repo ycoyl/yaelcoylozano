@@ -195,6 +195,57 @@ body.project-open .mechanisms-background {
     border: 1px solid #475569;
     border-radius: 8px;
     background: #111b2e;
+    cursor: zoom-in;
+}
+
+.project-fea-gallery img:focus-visible {
+    outline: 3px solid #38bdf8;
+    outline-offset: 4px;
+}
+
+.image-lightbox {
+    position: relative;
+    width: min(96vw, 1200px);
+    max-width: 96vw;
+    max-height: 94dvh;
+    padding: 52px 16px 16px;
+    overflow: visible;
+    border: 1px solid #475569;
+    border-radius: 12px;
+    background: #0b1121;
+    color: #f8fafc;
+}
+
+.image-lightbox::backdrop {
+    background: rgba(2, 6, 23, 0.88);
+    backdrop-filter: blur(4px);
+}
+
+.image-lightbox-preview {
+    display: block;
+    width: 100%;
+    max-height: calc(94dvh - 72px);
+    object-fit: contain;
+}
+
+.image-lightbox-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #64748b;
+    border-radius: 50%;
+    background: #1e293b;
+    color: #fff;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.image-lightbox-close:focus-visible {
+    outline: 3px solid #38bdf8;
+    outline-offset: 3px;
 }
 
 .project-details[hidden],
@@ -229,5 +280,9 @@ body.project-open .mechanisms-background {
 
     .project-fea-gallery img {
         height: 200px;
+    }
+
+    .image-lightbox {
+        padding: 52px 8px 8px;
     }
 }
