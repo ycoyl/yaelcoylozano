@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function setupProjects() {
         const cards = grid.querySelectorAll('[data-project]');
         const panels = details.querySelectorAll('.project-detail');
+        const backButtons = details.querySelectorAll('.back-to-projects');
         let lastSelectedCard = null;
         let pageScrollY = 0;
 
@@ -129,12 +130,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Delegación para que «Volver» siempre cierre el detalle activo.
-        details.addEventListener('click', (event) => {
-            const backButton = event.target.closest('.back-to-projects');
-            if (!backButton) return;
-            event.preventDefault();
-            closeProject();
+        // Añade el manejador directamente a cada botón después de cargar las plantillas.
+        backButtons.forEach((button) => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                closeProject();
+            });
         });
 
         const imageDialog = document.createElement('dialog');
