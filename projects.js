@@ -131,6 +131,14 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        // Mantiene el botón de regreso visible mientras se desplaza el detalle.
+        Object.assign(backButton.style, {
+            position: 'sticky',
+            top: '0',
+            zIndex: '5',
+            padding: '10px 12px',
+            backgroundColor: '#0b1121'
+        });
         backButton.addEventListener('click', closeProject);
 
         const imageDialog = document.createElement('dialog');
