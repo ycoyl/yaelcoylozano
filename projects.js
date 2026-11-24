@@ -1,4 +1,63 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Álbum de fotos de la sección «Sobre mí».
+    const profileFrame = document.querySelector('.about-image');
+    const profileImage = profileFrame?.querySelector('img');
+
+    if (profileFrame && profileImage) {
+        const profilePhotos = [
+            { src: 'Fondo perfil.jpeg', alt: 'Yael Coy Lozano' },
+            { src: 'images/Presentación1.jpeg', alt: 'Presentación de Yael Coy Lozano, foto 1' },
+            { src: 'images/Presentación2.jpeg', alt: 'Presentación de Yael Coy Lozano, foto 2' },
+            { src: 'images/Presentación3.jpeg', alt: 'Presentación de Yael Coy Lozano, foto 3' }
+        ];
+        let currentPhoto = 0;
+
+        profileFrame.classList.add('profile-carousel');
+        profileImage.id = 'profile-carousel-image';
+        profileImage.setAttribute('aria-live', 'polite');
+
+        const previousButton = document.createElement('button');
+        previousButton.className = 'profile-carousel-control profile-carousel-previous';
+        previousButton.type = 'button';
+        previousButton.setAttribute('aria-label', 'Ver foto anterior');
+        previousButton.innerHTML = '<span aria-hidden="true">&#10094;</span>';
+
+        const nextButton = document.createElement('button');
+        nextButton.className = 'profile-carousel-control profile-carousel-next';
+        nextButton.type = 'button';
+        nextButton.setAttribute('aria-label', 'Ver foto siguiente');
+        nextButton.innerHTML = '<span aria-hidden="true">&#10095;</span>';
+
+        function showPhoto(index) {
+            currentPhoto = (index + profilePhotos.length) % profilePhotos.length;
+            profileImage.src = profilePhotos[currentPhoto].src;
+            profileImage.alt = profilePhotos[currentPhoto].alt;
+        }
+
+        previousButton.addEventListener('click', () => showPhoto(currentPhoto - 1));
+        nextButton.addEventListener('click', () => showPhoto(currentPhoto + 1));
+        profileFrame.append(previousButton, nextButton);
+    }
+
+    // Barra de contacto inmediatamente después de «Sobre mí».
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+        const contactBar = document.createElement('aside');
+        contactBar.className = 'contact-bar';
+        contactBar.setAttribute('aria-label', 'Información de contacto');
+        contactBar.innerHTML = `
+            <div class="contact-bar-inner">
+                <strong>Contáctame:</strong>
+                <a href="tel:+573108864802">+57 310 8864 802</a>
+                <span class="contact-separator" aria-hidden="true">|</span>
+                <a href="mailto:yaelcoy@gmail.com">yaelcoy@gmail.com</a>
+                <span class="contact-separator" aria-hidden="true">|</span>
+                <a href="https://www.linkedin.com/in/yaelcoy" target="_blank" rel="noopener noreferrer">www.linkedin.com/in/yaelcoy</a>
+            </div>
+        `;
+        aboutSection.insertAdjacentElement('afterend', contactBar);
+    }
+
     const grid = document.getElementById('projects-grid');
     const details = document.getElementById('project-details');
     if (!grid || !details) return;
@@ -102,7 +161,8 @@ document.addEventListener('DOMContentLoaded', () => {
             image.addEventListener('click', () => openImage(image));
             image.addEventListener('keydown', (event) => {
                 if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventEventDefault();
+                    event.preventDefault();
+                    openImage(image);
                 }
             });
         });
