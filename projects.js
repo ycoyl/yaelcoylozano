@@ -86,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setupProjects() {
-        const backButton = details.querySelector('.back-to-projects');
         const cards = grid.querySelectorAll('[data-project]');
         const panels = details.querySelectorAll('.project-detail');
         let lastSelectedCard = null;
@@ -130,7 +129,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        backButton.addEventListener('click', closeProject);
+        // Delegación para que «Volver» siempre cierre el detalle activo.
+        details.addEventListener('click', (event) => {
+            const backButton = event.target.closest('.back-to-projects');
+            if (!backButton) return;
+            event.preventDefault();
+            closeProject();
+        });
 
         const imageDialog = document.createElement('dialog');
         imageDialog.className = 'image-lightbox';
