@@ -131,13 +131,20 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Mantiene el botón de regreso visible mientras se desplaza el detalle.
+        // El botón queda fijo al desplazarse, sin extender un fondo a todo el ancho.
         Object.assign(backButton.style, {
             position: 'sticky',
-            top: '0',
+            top: '12px',
             zIndex: '5',
-            padding: '10px 12px',
-            backgroundColor: '#0b1121'
+            width: 'fit-content',
+            margin: '0 0 22px',
+            padding: '9px 16px',
+            border: '1px solid rgba(56, 189, 248, 0.55)',
+            borderRadius: '999px',
+            backgroundColor: 'rgba(11, 17, 33, 0.94)',
+            boxShadow: '0 4px 14px rgba(0, 0, 0, 0.3)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)'
         });
         backButton.addEventListener('click', closeProject);
 
