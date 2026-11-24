@@ -1,0 +1,56 @@
+/* Cuadrícula compacta y adaptable para tres proyectos por fila en escritorio. */
+.projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.projects-grid .project-card {
+    min-width: 0;
+    padding: 0;
+}
+
+.projects-grid .project-card-image {
+    height: 145px;
+}
+
+.projects-grid .project-card-content {
+    padding: 16px;
+}
+
+.projects-grid .project-card-title {
+    font-size: 1.2rem;
+    line-height: 1.3;
+}
+
+.projects-grid .project-card-tags {
+    font-size: 0.76rem;
+    line-height: 1.4;
+}
+
+.projects-grid .project-card-summary {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.projects-grid .project-card-link {
+    margin-top: 14px;
+    font-size: 0.92rem;
+}
+
+@media (max-width: 850px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+}
+
+@media (max-width: 560px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .projects-grid .project-card-image {
+        height: 180px;
+    }
+}
