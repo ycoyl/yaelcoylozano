@@ -7,8 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const profilePhotos = [
             { src: 'Fondo perfil.jpeg', alt: 'Yael Coy Lozano' },
             { src: 'images/Presentación1.jpeg', alt: 'Presentación de Yael Coy Lozano, foto 1' },
-            { src: 'images/Presentación2.jpeg', alt: 'Presentación de Yael Coy Lozano, foto 2' },
-            { src: 'images/Presentación3.jpeg', alt: 'Presentación de Yael Coy Lozano, foto 3' }
+            { src: 'images/Presentación2.jpeg', alt: 'Presentación de Yael Coy Lozano, foto 2' }
         ];
         let currentPhoto = 0;
 
@@ -131,21 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // El botón queda fijo al desplazarse, sin extender un fondo a todo el ancho.
-        Object.assign(backButton.style, {
-            position: 'sticky',
-            top: '12px',
-            zIndex: '5',
-            width: 'fit-content',
-            margin: '0 0 22px',
-            padding: '9px 16px',
-            border: '1px solid rgba(56, 189, 248, 0.55)',
-            borderRadius: '999px',
-            backgroundColor: 'rgba(11, 17, 33, 0.94)',
-            boxShadow: '0 4px 14px rgba(0, 0, 0, 0.3)',
-            backdropFilter: 'blur(8px)',
-            WebkitBackdropFilter: 'blur(8px)'
-        });
         backButton.addEventListener('click', closeProject);
 
         const imageDialog = document.createElement('dialog');
