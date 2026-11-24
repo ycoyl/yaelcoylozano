@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Hoja de estilos compacta para mostrar tres tarjetas por fila en escritorio.
+    const projectGridStyles = document.createElement('link');
+    projectGridStyles.rel = 'stylesheet';
+    projectGridStyles.href = 'projects-grid.css';
+    document.head.append(projectGridStyles);
+
     // Álbum de fotos de la sección «Sobre mí».
     const profileFrame = document.querySelector('.about-image');
     const profileImage = profileFrame?.querySelector('img');
@@ -61,7 +67,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const details = document.getElementById('project-details');
     if (!grid || !details) return;
 
-    const projectFiles = ['project-plato.html', 'project-zamak.html'];
+    const projectFiles = [
+        'project-plato.html',
+        'project-zamak.html',
+        'project-recubrimiento.html'
+    ];
 
     async function loadProjectTemplates() {
         for (const file of projectFiles) {
