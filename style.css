@@ -211,8 +211,11 @@ p {
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 8px 32px rgba(56, 189, 248, 0.15);
+    width: 100%;
     max-width: 250px;
-    height: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    align-self: start;
     display: flex;
     align-items: center;
     justify-content: center;
