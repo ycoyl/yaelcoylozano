@@ -1,0 +1,121 @@
+<template id="project-cubesat-card-template">
+    <button class="project-card" type="button" data-project="cubesat" aria-controls="detail-cubesat">
+        <img class="project-card-image" src="images/Foto6_CubeSat_P2.png" alt="Mecanismo de tijera desplegado para una antena de nanosatélite" loading="lazy">
+        <span class="project-card-content">
+            <span class="project-card-title">Carcasa y mecanismo de despliegue de antena para un nanosatélite</span>
+            <span class="project-card-tags" aria-label="Etiquetas del proyecto">Diseño mecánico · Modelado cinemático · Optimización · Piñón-cremallera · Prototipado 3D</span>
+            <span class="project-card-summary">Diseño y prototipado en PETG de una carcasa compacta con mecanismo de tijera, accionado por piñón-cremallera, para desplegar una antena de nanosatélite sin componentes metálicos.</span>
+            <span class="project-card-link">Ver proyecto <span aria-hidden="true">&#8594;</span></span>
+        </span>
+    </button>
+</template>
+
+<template id="project-cubesat-detail-template">
+    <article class="project-detail project-detail-cubesat" id="detail-cubesat" tabindex="-1" hidden>
+        <div class="project-detail-content">
+            <p class="project-detail-label">Proyecto destacado</p>
+            <h3>Carcasa y mecanismo de despliegue de antena para un nanosatélite</h3>
+            <p class="project-meta">Proyecto de diseño mecánico · Modelado cinemático · Optimización · Actuador piñón-cremallera · Prototipado en 3D</p>
+
+            <div class="project-header-gallery project-image-gallery project-single-image" aria-label="Mecanismo de despliegue de antena para nanosatélite">
+                <figure class="project-figure">
+                    <img src="images/Foto6_CubeSat_P2.png" alt="Mecanismo de tijera desplegado para una antena de nanosatélite">
+                    <figcaption>Vista principal del mecanismo de despliegue de la antena.</figcaption>
+                </figure>
+            </div>
+
+            <h4>Resumen</h4>
+            <p>Diseñé, optimicé y prototipé una carcasa con un mecanismo de tijera para desplegar la antena de un nanosatélite. Un actuador de piñón-cremallera, reducido a un solo grado de libertad, mueve simultáneamente los cuatro brazos de la tijera. Todo el sistema se imprimió en 3D en PETG, sin piezas metálicas, para evitar interferencias con el campo electromagnético de la antena.</p>
+            <p>En estado plegado, el conjunto cabe en una envolvente de 10 × 10 cm; el diseño final ocupa 6,2 × 9,336 cm. Desplegado, alcanza aproximadamente 33,8 cm.</p>
+
+            <h4>1. Contexto y requerimientos</h4>
+            <p>La antena debía permanecer plegada dentro de la carcasa durante el lanzamiento y desplegarse una vez en órbita. Los requerimientos, definidos en el documento de dimensiones, fueron:</p>
+            <ul>
+                <li>Estado desplegado: tres etapas de tijera por lado, con anchos de 7,04 cm, 5,63 cm y 2,82 cm, para aproximadamente 33,81 cm en total. Las piezas de extremo de 5 mm eran preliminares y no se incluyen en esa longitud.</li>
+                <li>Caja central: 2,82 cm de ancho, 5,7 cm de alto y 3,34 cm de espesor para alojar el sistema de accionamiento.</li>
+                <li>Estado plegado: caber en una envolvente máxima de 10 × 10 cm.</li>
+                <li>Material: fabricación completamente por impresión 3D y sin elementos metálicos, ya que el campo electromagnético podía afectar el funcionamiento de la antena.</li>
+            </ul>
+            <div class="project-single-image project-image-gallery" aria-label="Dimensiones y resultado del mecanismo de tijera">
+                <figure class="project-figure">
+                    <img src="images/Resul_Python_mecanismo.png" alt="Esquema de dimensiones y ancho desplegado aproximado de 33,81 centímetros">
+                    <figcaption>Geometría y dimensiones del mecanismo en estado desplegado.</figcaption>
+                </figure>
+            </div>
+
+            <h4>2. Modelado cinemático</h4>
+            <p>Modelé la tijera como un mecanismo trapezoidal de un solo grado de libertad: un ángulo θ común a todas las etapas, con pivotes desplazados del centro de cada barra. Las longitudes de brazo u<sub>i</sub> y v<sub>i</sub> se obtienen por trigonometría a partir de los anchos desplegados y garantizan compatibilidad geométrica entre etapas consecutivas: u<sub>2</sub> = v<sub>1</sub> y u<sub>3</sub> = v<sub>2</sub>.</p>
+            <p>El modelo también considera el ancho real de las barras (3 mm), la separación mínima entre barras de una misma capa para evitar interferencias y un margen respecto a los 90° de plegado. A 90° el mecanismo alcanza una singularidad o punto muerto y pierde control.</p>
+
+            <h4>3. Optimización</h4>
+            <p>En Python, con NumPy, SciPy, Pandas y Matplotlib, optimicé los ángulos de despliegue y plegado:</p>
+            <ul>
+                <li><strong>Barrido global:</strong> exploré todas las combinaciones factibles de ángulos para localizar un buen punto sin depender de una semilla inicial.</li>
+                <li><strong>Refinamiento con SLSQP:</strong> minimicé el área plegada W·H, sujeta a W ≤ 10 cm y H ≤ 10 cm, y conservé el mejor resultado entre el barrido y el refinamiento.</li>
+                <li><strong>Verificaciones automáticas:</strong> comprobé los anchos desplegados, la compatibilidad de los brazos, la igualdad de los tres θ<sub>i</sub>, la envolvente y el margen a la singularidad.</li>
+                <li><strong>Resultados visuales:</strong> generé la trayectoria de plegado, el frente de Pareto, la sensibilidad al ancho de barra y una animación interactiva del despliegue con controles de reproducción y pausa.</li>
+            </ul>
+            <p><strong>Resultado del diseño:</strong> θ<sub>dep</sub> = 38,996°; θ<sub>fold</sub> = 86° (margen de 4° respecto al punto muerto); ancho plegado de 6,2 cm; altura plegada de 9,336 cm; área plegada de aproximadamente 57,9 cm²; barra de 0,3 cm y recorrido de los pines en la base de 1,668 cm.</p>
+            <div class="project-table-wrap">
+                <table class="project-data-table">
+                    <thead><tr><th>Etapa</th><th>Segmento inferior u (cm)</th><th>Segmento superior v (cm)</th><th>Longitud L (cm)</th><th>Ancho desplegado w (cm)</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>4,529</td><td>4,529</td><td>9,058</td><td>7,04</td></tr>
+                        <tr><td>2</td><td>4,529</td><td>2,715</td><td>7,244</td><td>5,63</td></tr>
+                        <tr><td>3</td><td>2,715</td><td>0,914</td><td>3,629</td><td>2,82</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>4. Estudio de mecanismos y diseño del actuador</h4>
+            <p>Analicé en MotionGen el comportamiento de la tijera y de varios mecanismos candidatos para accionarla. Comparé las trayectorias de los nodos y las posiciones plegada y desplegada, y descarté las configuraciones que no cumplían la envolvente o presentaban un comportamiento poco favorable.</p>
+            <div class="project-fea-gallery project-image-gallery" aria-label="Estudios del mecanismo de tijera en MotionGen">
+                <figure class="project-figure">
+                    <img src="images/Captura1%20(1).png" alt="Primera captura del estudio cinemático de la tijera en MotionGen">
+                    <figcaption>Estudio cinemático de la tijera en MotionGen.</figcaption>
+                </figure>
+                <figure class="project-figure">
+                    <img src="images/Captura1%20(2).png" alt="Segunda captura del estudio de posiciones de la tijera en MotionGen">
+                    <figcaption>Comparación de posiciones y trayectoria del mecanismo.</figcaption>
+                </figure>
+            </div>
+            <p>Dimensioné el actuador en Python y Excel. La solución final integra dos mecanismos de piñón-cremallera, reducidos a un solo grado de libertad: un único movimiento de entrada acciona cuatro brazos de la tijera al mismo tiempo, dos por cada lado. Así, el despliegue es simétrico y sincronizado, sin varios actuadores ni componentes metálicos.</p>
+
+            <h4>Diseño del piñón y la cremallera</h4>
+            <p>Los dos mecanismos caben en la caja central, que deja 24,4 mm de ancho y 57 mm de longitud. El piñón tiene Z = 12 dientes, diámetro primitivo de 18 mm (módulo 1,5 mm) y ángulo de presión de 25°. Las cremalleras tienen 12 dientes en la longitud disponible, con paso de 4,71 mm.</p>
+            <ul>
+                <li>Sin socavado: el piñón tiene 12 dientes y el mínimo calculado es 11,2.</li>
+                <li>Sin interferencia entre la punta de la cremallera y el círculo base del piñón.</li>
+                <li>Relación de contacto de 1,49, por lo que siempre hay más de un diente en contacto.</li>
+                <li>Juego circunferencial de 0,118 mm y radio de entalle compatible con la geometría de la cremallera.</li>
+                <li>Cada cremallera avanza 56,5 mm por vuelta del piñón; el recorrido relativo entre ambas es de 113,1 mm por vuelta.</li>
+            </ul>
+
+            <h4>5. Fabricación y prototipado iterativo</h4>
+            <p>Imprimí los prototipos en PETG con 30 % de relleno. Como las holguras y los elementos son muy pequeños, las tolerancias son justas; para lograrlas, recomiendo una boquilla de 0,2 mm.</p>
+            <p>El prototipo preliminar no cumplía todavía las dimensiones finales, pero permitió observar el comportamiento real del mecanismo, las holguras y la rigidez de las piezas impresas, además de planear los siguientes pasos. El prototipo final cumple el documento de dimensiones: la tijera queda plegada alrededor de la caja central, que aloja el piñón del actuador.</p>
+            <div class="project-single-image project-image-gallery">
+                <figure class="project-figure">
+                    <img src="images/CubeSat_3d.jpeg" alt="Prototipos preliminar y final del mecanismo de antena impresos en PETG">
+                    <figcaption>Prototipos impresos en PETG: preliminar (izquierda) y final (derecha).</figcaption>
+                </figure>
+            </div>
+
+            <h4>6. Herramientas y habilidades</h4>
+            <p>Diseño CAD, síntesis y simulación de mecanismos en MotionGen, modelado cinemático y optimización numérica en Python (NumPy, SciPy, Pandas y Matplotlib), dimensionamiento de transmisiones piñón-cremallera en Python y Excel, impresión 3D en PETG, prototipado iterativo y diseño para manufactura aditiva con restricciones de material y tolerancias justas.</p>
+            <div class="project-fea-gallery project-image-gallery" aria-label="Vistas adicionales del proyecto CubeSat">
+                <figure class="project-figure">
+                    <img src="images/Foto3_CubeSat_P2.png" alt="Vista adicional del mecanismo de despliegue de la antena">
+                    <figcaption>Vista del mecanismo de despliegue.</figcaption>
+                </figure>
+                <figure class="project-figure">
+                    <img src="images/Foto5_CubeSat_P2.png" alt="Vista adicional de la carcasa y antena del nanosatélite">
+                    <figcaption>Vista de la carcasa y el conjunto de la antena.</figcaption>
+                </figure>
+            </div>
+
+            <h4>7. Aprendizajes</h4>
+            <p>Pasar del modelo ideal al objeto físico exigió considerar el ancho de las barras, las holguras de impresión y el margen a la singularidad. El prototipo preliminar fue especialmente valioso: mostró fallas que la simulación no anticipaba y orientó el diseño final.</p>
+        </div>
+    </article>
+</template>
