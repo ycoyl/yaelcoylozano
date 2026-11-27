@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!grid || !details) return;
 
     const projectFiles = [
+        'project-cubesat.html',
         'project-plato.html',
         'project-zamak.html',
         'project-recubrimiento.html'
