@@ -44,6 +44,34 @@ document.addEventListener('DOMContentLoaded', () => {
         profileFrame.append(previousButton, nextButton);
     }
 
+    // Acceso a la hoja de vida justo debajo de la presentación «Sobre mí».
+    const aboutContent = document.querySelector('#about .about-content');
+    if (aboutContent) {
+        const resumeActions = document.createElement('div');
+        resumeActions.className = 'resume-actions';
+        resumeActions.innerHTML = `
+            <a class="resume-button" href="Yael_Coy_Lozano_Resume_comp.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir hoja de vida en PDF en una pestaña nueva">
+                Ver hoja de vida <span aria-hidden="true">&#8599;</span>
+            </a>
+            <a class="resume-download" href="Yael_Coy_Lozano_Resume_comp.pdf" download="Yael_Coy_Lozano_Resume_comp.pdf">
+                Descargar PDF
+            </a>
+        `;
+
+        const resumeStyles = document.createElement('style');
+        resumeStyles.textContent = `
+            .resume-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 18px; margin: 24px 0 0; }
+            .resume-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 18px; border: 1px solid #38bdf8; border-radius: 999px; background: rgba(56, 189, 248, 0.14); color: #7dd3fc; font: inherit; font-size: 1rem; font-weight: 700; text-decoration: none; transition: background-color 0.2s ease, transform 0.2s ease; }
+            .resume-button:hover { transform: translateY(-2px); background: rgba(56, 189, 248, 0.25); }
+            .resume-button:focus-visible, .resume-download:focus-visible { outline: 3px solid #38bdf8; outline-offset: 4px; }
+            .resume-download { color: #cbd5e1; font-size: 0.95rem; text-underline-offset: 4px; }
+            .resume-download:hover { color: #7dd3fc; }
+            @media (max-width: 480px) { .resume-actions { gap: 10px; } }
+        `;
+        document.head.append(resumeStyles);
+        aboutContent.insertAdjacentElement('afterend', resumeActions);
+    }
+
     // Barra de contacto inmediatamente después de «Sobre mí».
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
